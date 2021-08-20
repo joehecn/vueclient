@@ -122,7 +122,7 @@ export default {
         state.tableData = data.slice(start, end)
         state.loading = false
       }).catch(error => {
-        console.log(error)
+        console.error(error)
       })
     }
 
@@ -132,7 +132,7 @@ export default {
         // console.log(data)
         state.doorOptions = data
       }).catch(error => {
-        console.log(error)
+        console.error(error)
       })
     }
 

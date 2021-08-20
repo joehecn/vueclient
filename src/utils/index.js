@@ -20,7 +20,7 @@ export function localRemove (key) {
 
 export function handleAxiosError(error) {
   if (error.response) {
-    console.log(error.response.data)
+    console.error(error.response.data)
     const { code, message } = error.response.data
     ElMessage.error(`Error: ${code} - ${message}`)
   }

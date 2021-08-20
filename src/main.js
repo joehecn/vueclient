@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
+import VueNativeSock from 'vue-native-websocket-vue3'
 import App from './App.vue'
 import router from './router/index'
+
 // import { createStore } from 'vuex'
 
 import {
@@ -34,6 +36,12 @@ let myWorker = null
 const init = ({}) => {
   // 创建并挂载根实例
   const app = createApp(App)
+
+  app.use(VueNativeSock, 'ws://localhost:4003', {
+    reconnection: true,
+    reconnectionAttempts: 5, 
+    reconnectionDelay: 3000
+  })
 
   // 确保 _use_ 路由实例使
   // 整个应用支持路由。

@@ -11,6 +11,7 @@
     "lodash.isequal": "^4.5.0",
     "moment": "^2.29.1",
     "vue": "^3.0.11",
+    "vue-native-websocket-vue3": "^3.1.4",
     "vue-router": "^4.0.8"
   },
   "devDependencies": {

@@ -96,9 +96,15 @@ export default {
 
     const readCard = () => {
       const portForm = localGet('portForm') || { port: 3 }
-      axios.get(`/vue_api?method=ReadIDm&portnum=${portForm.port}`).then(res => {
-        console.log(res)
-        const cardNo = res.sIDm.split(' ').join('')
+      axios.get('/vue_api?m=card').then(res => {
+        const data = JSON.parse(res)
+        console.log(data)
+        if (data.message) {
+          ElMessage.error(data.message)
+          state.ruleForm.cardNo = ''
+          return
+        }
+        const cardNo = data.card.split(' ').join('')
         console.log({ cardNo })
         state.ruleForm.cardNo = cardNo
         ElMessage.success('成功讀取卡號')
